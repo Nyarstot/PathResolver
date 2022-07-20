@@ -111,15 +111,15 @@ class PathResolverGUI(QWidget):
 
         # Top Layout
 
-        self.past_box=QLineEdit()
+        self.paste_box=QLineEdit()
         self.copy_box=QLineEdit()
 
-        self.past_box=QLineEdit(self)
+        self.paste_box=QLineEdit(self)
         self.copy_box=QLineEdit(self)
         self.copy_box.setReadOnly(True)
-        self.past_box.textChanged.connect(self._on_text_changed)
+        self.paste_box.textChanged.connect(self._on_text_changed)
 
-        self.top_layout.addRow('Past', self.past_box)
+        self.top_layout.addRow('Paste', self.paste_box)
         self.top_layout.addRow('Copy', self.copy_box)
 
         # Bottom Layout
@@ -127,7 +127,7 @@ class PathResolverGUI(QWidget):
         self.reverse_button=QPushButton('[1] Reverse slahes')
         self.pathonly_button=QPushButton('[2] Get path only')
         self.fileonly_button=QPushButton('[3] Get file only')
-        self.fstring_button=QPushButton('[4] Get format string')
+        self.fstring_button=QPushButton('[4] Get formatted string')
 
         self.reverse_button.setObjectName('reverse_button')
         self.pathonly_button.setObjectName('pathonly_button')
@@ -151,27 +151,27 @@ class PathResolverGUI(QWidget):
     # Private
 
     def _reverse_action(self):
-        box_text = str(self.past_box.text())
+        box_text = str(self.paste_box.text())
         box_text = self.base_app.reverse_slashes(box_text)
         self.copy_box.setText(box_text)
 
     def _filename_action(self):
-        box_text = self.past_box.text()
+        box_text = self.paste_box.text()
         box_text = self.base_app.get_filename(box_text)
         self.copy_box.setText(box_text)
 
     def _path_only_action(self):
-        box_text = self.past_box.text()
+        box_text = self.paste_box.text()
         box_text = self.base_app.get_path_only(box_text)
         self.copy_box.setText(box_text)
 
     def _fstring_action(self):
-        box_text = self.past_box.text()
+        box_text = self.paste_box.text()
         box_text = self.base_app.get_formatted_string(box_text)
         self.copy_box.setText(box_text)
 
     def _on_text_changed(self):
-        if self.past_box != '':
+        if self.paste_box != '':
             self._reverse_action()
 
     def _set_window_flag_default(self):
