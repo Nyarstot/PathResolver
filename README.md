@@ -1,6 +1,6 @@
 # Description
 
-Path resolver is a small helper program for working with system paths. The application can be useful if you often work with server style path on windows or something similar.
+Path resolver is a small helper program for working with system paths. The application can be useful if you often work with server style path on windows or something similar. Application automatically copy result to clipboard, so you don't have to do it manually.
 
 # Functional
 
@@ -68,7 +68,7 @@ To use path resolver in console mode, simply type in console:
 
     path_resolver -p C:/path/to/file -f reverse
 
-arg *-f* have four different flags to work with.
+arg *-f* have four different flags to work with. 
 
 |  flag    |    function          |
 |----------|----------------------|
@@ -76,3 +76,5 @@ arg *-f* have four different flags to work with.
 | filename | get filename         |
 | pathonly | get path only        |
 | fstring  | get formatted string |
+
+arg *-f* have four different flags to work with but it's unnecessary to use it. You can ignore *-f* argument then application automatically use reverse function and copy result to clipboard.
